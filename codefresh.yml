@@ -5,14 +5,14 @@ steps:
     description: Build amarkwalder/cdk-ntp
     dockerfile: Dockerfile
     image-name: amarkwalder/cdk-ntp 
-    tag: ${{CF_BRANCH}}
- 
+    tag:
+      - ${{CF_BRANCH}}
+      - latest 
+
   push-dockerhub:
     type: push
     description: Push to hub.docker.com - amarkwalder/cdk-ntp:${{CF_BRANCH}}
     candidate: ${{build}}
-    tag:
-      - ${{CF_BRANCH}}
-      - latest
+    tag: ${{CF_BRANCH}}
     fail-fast: false
 
