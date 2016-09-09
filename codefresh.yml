@@ -11,6 +11,8 @@ steps:
     type: push
     description: Push to hub.docker.com - amarkwalder/cdk-ntp:${{CF_BRANCH}}
     candidate: ${{build}}
-    tag: ${{CF_BRANCH}} latest
+    tag:
+      - ${{CF_BRANCH}}
+      - latest
     fail-fast: false
 
