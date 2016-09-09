@@ -12,9 +12,6 @@ steps:
     description: Push to hub.docker.com - amarkwalder/cdk-ntp:${{CF_BRANCH}}
     candidate: ${{build}}
     tag: ${{CF_BRANCH}}
-    credentials:
-      username: ${{username}}
-      password: ${{password}}
     fail-fast: false
 
   push-dockerhub-latest:
@@ -22,7 +19,4 @@ steps:
     description: Push to hub.docker.com - amarkwalder/cdk-ntp:latest
     candidate: ${{build}}
     tag: latest 
-    credentials:
-      username: ${{username}}
-      password: ${{password}}
     fail-fast: false
