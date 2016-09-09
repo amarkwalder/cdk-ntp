@@ -2,16 +2,16 @@ version: '1.0'
 steps:
   build:
     type: build
-    description: Build ${{IMAGE_NAME}}
+    description: Build amarkwalder/cdk-ntp
     dockerfile: Dockerfile
-    image-name: ${{IMAGE_NAME}} 
-    tag: ${{CF_BRANCHNAME}}
+    image-name: amarkwalder/cdk-ntp 
+    tag: ${{CF_BRANCH}}
  
   push-dockerhub:
     type: push
-    description: Push to hub.docker.com - ${{IMAGE_NAME}}:${{CF_BRANCHNAME}}
+    description: Push to hub.docker.com - amarkwalder/cdk-ntp:${{CF_BRANCH}}
     candidate: ${{build}}
-    tag: ${{CF_BRANCHNAME}}
+    tag: ${{CF_BRANCH}}
     credentials:
       username: ${{username}}
       password: ${{password}}
@@ -19,7 +19,7 @@ steps:
 
   push-dockerhub-latest:
     type: push
-    description: Push to hub.docker.com - ${{IMAGE_NAME}}:latest
+    description: Push to hub.docker.com - amarkwalder/cdk-ntp:latest
     candidate: ${{build}}
     tag: latest 
     credentials:
